@@ -1,10 +1,14 @@
+Width is the MAX num of nodes that CAN lie between two existing nodes.
+While patterns give us the index of left most and right-most node at a level, overflow
+will be an issue. We counter it by replacing it with 0 and reducing rightmost too. Then substracting rightmost-leftmost+1
+
 class Solution {
 public:
     int widthOfBinaryTree(TreeNode* root) {
-        if(!root)
+        if(!root)  //When tree does not exist
             return 0;
         int ans = 0;
-        queue<pair<TreeNode*, int>> q;
+        queue<pair<TreeNode*, int>> q; //For chossing and popping nodes => Q(P(data,index))
         q.push({root,0});
         while(!q.empty()){
             int size = q.size();
