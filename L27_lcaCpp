@@ -1,3 +1,7 @@
+Approach:
+We try to find p and q using the recursive method (DFS). If any one is found, we directly return it.
+Now, at the nodes, check is made and if both left and right are not null, that node is our answer.
+
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
@@ -5,6 +9,7 @@ public:
         if (root == NULL || root == p || root == q) {
             return root;
         }
+        //Recursion
         TreeNode* left = lowestCommonAncestor(root->left, p, q);
         TreeNode* right = lowestCommonAncestor(root->right, p, q);
 
